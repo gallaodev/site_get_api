@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GET API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="h1">Pagina Web GET_dados API</h1>
+  </header>  
+  <section id="section1">
+    <p id="p">Exemplos de URL: <br> https://jsonplaceholder.typicode.com/todos/1 <br> https://api.github.com/users/gallaodev <br> <br></p>
+    <div id="div1"> Cole a URL:<br>
+      <input type="text" id="input1"> <br><br>
+      <input type="button" value="Validar Conexao e GETdados" onclick="getContent()" id="input_style"> <br><br>
+    </div><br><br>
+</section> <br>
+<section id="section2">
+  <div id="div2">
+  </div><br>
+  <div id="div3">
+  </div>
+</section>
+
+<script>
+  async function getContent(){
+    let input1 = document.getElementById('input1')
+    let div2 = document.getElementById('div2')
+    let div3 = document.getElementById('div3')
+    try {
+      console.log(input1.value)
+      const response = await fetch((`${input1.value}`), 
+    {
+    method:  'GET',
+    headers: {'Content-Type': 'application/json; charset=utf-8'},
+    redirect:'follow',
+    //body: JSON.stringify({username:'',password:''})
+    })
+      const data = await response.text()
+      console.log(response)
+      console.log(data)
+      if(response.status === 200){
+        div2.innerHTML = (`O status da conexão é OK, COD ${response.status} `) 
+        div3.innerHTML = ('Saida do body: ' + '<br>' + '<br>' + `${data}`)
+
+      }else{
+        div2.innerHTML = (`${response.status} A CONEXAO ESTA NOK`)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  </script>
+  </body>

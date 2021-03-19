@@ -1,0 +1,28 @@
+
+body,p{
+    background-color: rgb(201, 201, 201);
+}
+header{
+    color: rgb(9, 11, 15);
+    text-align: center;
+    background-color: rgb(78, 64, 207);
+    border-radius: 10px;
+}
+#section1{
+    text-align: left;
+    background-color: rgb(111, 135, 243);
+    border-radius: 5px;
+    margin: auto;
+
+}
+#div2{
+    background-color:rgb(247, 248, 255);
+}
+#div3{
+       background-color:rgb(238, 239, 247);
+}
+#input_style{
+    box-shadow: lightslategray ;
+    border-radius: 10px;
+    background-color: rgb(165, 165, 165);
+}
